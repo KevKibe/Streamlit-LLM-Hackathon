@@ -4,11 +4,11 @@ import time
 import os
 from dotenv import load_dotenv
 load_dotenv('.env')
-api_key = os.getenv("OPENAI_API_KEY")
+# api_key = os.getenv("OPENAI_API_KEY")
 
 st.set_page_config(page_title="Chat with your emails!", page_icon="public\145862897_padded_logo.png", layout="centered")
 st.title("Chat with your emails!")
-# api_key =  st.secrets["openai"]["api_key"]
+api_key =  st.secrets["openai"]["api_key"]
 
 conversation_chain = ConversationChain(api_key)
 
