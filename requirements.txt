@@ -1,0 +1,12 @@
+google-auth
+google-auth-oauthlib
+google-auth-httplib2
+google-api-python-client
+langchain
+python-dotenv
+openai
+beautifulsoup4
+streamlit
+tiktoken
+faiss-cpu
+flask
