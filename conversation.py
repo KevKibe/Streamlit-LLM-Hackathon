@@ -67,11 +67,8 @@ def run_chat(openai_api_key,emails,user_input):
 
 
 
-# if __name__ == "__main__":
-#     openai_api_key = os.getenv("OPENAI_API_KEY")
-#     # chat_bot.run_chat()
-#     # chat_bot = ConversationChain()
-#     emails = preprocess_emails()  
-#     user_input = input("User: ")  
-#     response = run_chat(emails,user_input)
-#     print("Bot:", response) 
+# openai_api_key = os.getenv("OPENAI_API_KEY")
+# emails = preprocess_emails()  
+# user_input = input("User: ")  
+# response = run_chat(openai_api_key,emails,user_input)
+# print("Bot:", response) 
