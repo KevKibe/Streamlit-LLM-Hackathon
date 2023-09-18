@@ -1,5 +1,5 @@
 import streamlit as st
-from conversation import ConversationChain 
+from conversation import preprocess_emails, initialize_embeddings_and_vectorstore, initialize_conversation_chain, run_chat  
 import time
 import os
 from dotenv import load_dotenv
@@ -10,7 +10,7 @@ st.set_page_config(page_title="Chat with your emails!", page_icon="public\145862
 st.title("Chat with your emails!")
 api_key =  st.secrets["openai"]["api_key"]
 
-conversation_chain = ConversationChain(api_key)
+emails = preprocess_emails() 
 
 if "messages" not in st.session_state:
     st.session_state.messages = []
@@ -30,7 +30,7 @@ if prompt := st.chat_input("Summarize today's emails or find something out from 
         if prompt.lower() == "quit":
             assistant_response = "Goodbye!"
         else:
-            assistant_response = conversation_chain.run_chat(prompt)
+            assistant_response = run_chat(api_key,emails,prompt)
         for chunk in assistant_response.split():
             full_response += chunk + " "
             time.sleep(0.02)

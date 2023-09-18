@@ -1,9 +1,13 @@
 import os
 from flask import Flask, request, jsonify
 from conversation import ConversationChain  
+from dotenv import load_dotenv
+
+load_dotenv('.env')
 
 app = Flask(__name__)
-conversation_chain = ConversationChain()
+api_key = os.getenv("OPENAI_API_KEY")
+conversation_chain = ConversationChain(api_key)
 
 @app.route('/chat', methods=['POST'])
 def chat():
